@@ -15,7 +15,7 @@
     "src"
   ],
   "peerDependencies": {
-    "naive-ui": "^1.0.0",
+    "naive-ui": "workspace:^1.0.0",
     "nuxt": ">=3.0.0",
     "vue": "^3.0.0"
   },
