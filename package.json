@@ -1,6 +1,6 @@
 {
   "name": "naive-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@11.10.0",
   "description": "Performance-focused fork of Naive UI for Nuxt 3/4 SSR and Nitro",
   "author": "07akioni",

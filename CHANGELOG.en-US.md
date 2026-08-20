@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.0.1
+
+`2026-08-20`
+
+### Fixes
+
+- Ship `naive-ui-nuxt` Nitro `render:html` plugin as JavaScript so Nitro/Rollup no longer fails on TypeScript `as` assertions.
+- Resolve `@juggle/resize-observer` from `github:upclose-studio/resize-observer` (fixes the Nuxt SSR `process` identifier clash from vueuc).
+
 ## 1.0.0
 
 `2026-08-20`

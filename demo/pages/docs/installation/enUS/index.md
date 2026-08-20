@@ -6,19 +6,19 @@
 
 ## GitHub Release
 
-This fork is not published on npm. Install the v1.0.0 tarballs from [upclose-studio/naive-ui](https://github.com/upclose-studio/naive-ui/releases):
+This fork is not published on npm. Install the v1.0.1 tarballs from [upclose-studio/naive-ui](https://github.com/upclose-studio/naive-ui/releases):
 
 ```json
 {
   "dependencies": {
-    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-1.0.0.tgz",
-    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-nuxt-1.0.0.tgz"
+    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-1.0.1.tgz",
+    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-nuxt-1.0.1.tgz"
   }
 }
 ```
 
 ```bash
-bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-1.0.0.tgz
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-1.0.1.tgz
 ```
 
 A `github:upclose-studio/naive-ui` git dependency will not work — the repository does not contain the built `es/`, `lib/`, or `dist/` files.

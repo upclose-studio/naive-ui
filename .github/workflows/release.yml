@@ -41,15 +41,13 @@ jobs:
             naive-ui-nuxt-*.tgz
           generate_release_notes: true
           body: |
-            First install path for apps that are not using this monorepo:
+            Install the tarball assets attached to this release (filenames match `package.json` `version`):
 
             ```json
             {
               "dependencies": {
-                "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/${{ github.ref_name }}/naive-ui-1.0.0.tgz",
-                "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/${{ github.ref_name }}/naive-ui-nuxt-1.0.0.tgz"
+                "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/${{ github.ref_name }}/naive-ui-<version>.tgz",
+                "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/${{ github.ref_name }}/naive-ui-nuxt-<version>.tgz"
               }
             }
             ```
-
-            Replace the tarball filenames when the package version changes.
