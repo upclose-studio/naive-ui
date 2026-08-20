@@ -5,3 +5,6 @@ export type {
   DatePickerThemeOverrides,
   DatePickerThemeVars
 } from './light'
+export { default as dateRangePickerDark } from './range-dark'
+export { default as dateRangePickerLight } from './range-light'
+export type { DateRangePickerTheme } from './range-light'

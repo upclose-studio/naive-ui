@@ -84,7 +84,10 @@ You can also import components directly from ESM subpaths:
 
 ```ts
 import { NButton } from 'naive-ui/es/button'
+import { NDateRangePicker } from 'naive-ui/es/date-range-picker'
 ```
+
+`NDateRangePicker` is the all-villas / listing-filter export: `type` is `'date' | 'daterange'` (default `'daterange'`). It does not load datetime panels or `NTimePicker`. Keep using `NDatePicker` when you need `datetime`, `datetimerange`, month, year, quarter, or week.
 
 ## Vue / Vite (without Nuxt)
 

@@ -1,0 +1,5 @@
+export { default as NDateRangePicker } from './src/DateRangePicker'
+export type { DateRangePickerSlots } from './src/DateRangePicker'
+export { dateRangePickerProps } from './src/props'
+export type { DateRangePickerType } from './src/props'
+export type * from './src/public-types'
