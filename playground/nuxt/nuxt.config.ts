@@ -13,19 +13,10 @@ export default defineNuxtConfig({
       alias: {
         'naive-ui': repoRoot
       }
-    },
-    ssr: {
-      // @juggle/resize-observer exports a local `process()` helper. If Nitro
-      // inlines it into a chunk that also `import process from 'node:process'`,
-      // Node throws "Identifier 'process' has already been declared".
-      external: ['@juggle/resize-observer']
     }
   },
   nitro: {
-    preset: 'node-server',
-    externals: {
-      external: ['@juggle/resize-observer']
-    }
+    preset: 'node-server'
   },
   compatibilityDate: '2026-08-20'
 })

@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module'
 import {
   addComponent,
   addPlugin,
@@ -6,6 +7,17 @@ import {
   defineNuxtModule
 } from '@nuxt/kit'
 import { naiveComponents } from './components'
+
+const require = createRequire(import.meta.url)
+
+function resolveJuggleResizeObserver(): string | undefined {
+  try {
+    return require.resolve('@juggle/resize-observer')
+  }
+  catch {
+    return undefined
+  }
+}
 
 export interface NaiveUiNuxtOptions {
   /**
@@ -27,8 +39,16 @@ export default defineNuxtModule<NaiveUiNuxtOptions>({
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
+    const resizeObserver = resolveJuggleResizeObserver()
+    if (resizeObserver) {
+      nuxt.options.alias['@juggle/resize-observer'] = resizeObserver
+      nuxt.options.nitro.alias ??= {}
+      nuxt.options.nitro.alias['@juggle/resize-observer'] = resizeObserver
+    }
+
     nuxt.options.build.transpile.push(
       'naive-ui',
+      'naive-ui-nuxt',
       'vueuc',
       'seemly',
       'date-fns',
@@ -57,6 +77,6 @@ export default defineNuxtModule<NaiveUiNuxtOptions>({
       src: resolver.resolve('./runtime/plugin.client'),
       mode: 'client'
     })
-    addServerPlugin(resolver.resolve('./runtime/nitro-plugin'))
+    addServerPlugin(resolver.resolve('./runtime/nitro-plugin.js'))
   }
 })

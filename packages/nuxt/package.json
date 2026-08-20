@@ -20,6 +20,7 @@
     "vue": "^3.0.0"
   },
   "dependencies": {
+    "@juggle/resize-observer": "github:upclose-studio/resize-observer",
     "@nuxt/kit": "^3.16.0"
   },
   "devDependencies": {

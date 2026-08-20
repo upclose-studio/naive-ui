@@ -8,7 +8,9 @@ minimumReleaseAgeExclude:
   - vueuc@0.4.66
 onlyBuiltDependencies:
   - esbuild
+blockExoticSubdeps: false
 overrides:
+  '@juggle/resize-observer': github:upclose-studio/resize-observer
   cssstyle: 5.2.1
   vite: ^8.0.10
 peerDependencyRules:
