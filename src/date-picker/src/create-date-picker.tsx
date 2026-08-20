@@ -1229,7 +1229,10 @@ export function createDatePicker(options: DatePickerFactoryOptions) {
                           default: () => {
                             if (!this.mergedShow)
                               return null
-                            return withDirectives(renderPanel(), [
+                            const panel = renderPanel()
+                            if (!panel)
+                              return null
+                            return withDirectives(panel, [
                               [
                                 clickoutside,
                                 this.handleClickOutside,

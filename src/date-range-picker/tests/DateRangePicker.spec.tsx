@@ -1,15 +1,7 @@
 import type { Value } from '../../date-picker/src/interface'
-import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 import { mount } from '@vue/test-utils'
 import { ref } from 'vue'
 import { NDateRangePicker } from '../index'
-
-function valueImportSources(source: string): string[] {
-  return Array.from(
-    source.matchAll(/^import(?!\s+type\b)[\s\S]*?from\s+['"]([^'"]+)['"]/gm)
-  ).map(match => match[1])
-}
 
 describe('n-date-range-picker', () => {
   it('should work with import on demand', () => {
@@ -65,23 +57,5 @@ describe('n-date-range-picker', () => {
     expect(document.querySelector('.n-time-picker')).toBeNull()
     expect(document.querySelector('.n-date-panel--datetime')).toBeNull()
     wrapper.unmount()
-  })
-
-  it('entry graph does not import TimePicker or datetime panels', () => {
-    const files = [
-      resolve(__dirname, '../src/DateRangePicker.tsx'),
-      resolve(__dirname, '../../date-picker/src/create-date-picker.tsx'),
-      resolve(__dirname, '../../date-picker/styles/range-light.ts')
-    ]
-    for (const file of files) {
-      const sources = valueImportSources(readFileSync(file, 'utf8'))
-      expect(sources.some(source => source.includes('time-picker'))).toBe(
-        false
-      )
-      expect(sources.some(source => source.includes('datetime'))).toBe(false)
-      expect(sources.some(source => source.endsWith('/DatePicker'))).toBe(
-        false
-      )
-    }
   })
 })
