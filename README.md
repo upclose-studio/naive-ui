@@ -15,11 +15,36 @@ Performance-focused fork of [`tusen-ai/naive-ui`](https://github.com/tusen-ai/na
 
 Runtime UI locales (including `zhCN`) are still shipped for i18n. Chinese documentation and demo markdown were removed.
 
-## Nuxt 3/4 setup
+## Install from GitHub (not on npm)
+
+This fork is published as GitHub Release tarballs, not on the npm registry. Point your app at `upclose-studio/naive-ui` like this:
+
+```json
+{
+  "dependencies": {
+    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz",
+    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz"
+  }
+}
+```
 
 ```bash
-pnpm add naive-ui naive-ui-nuxt
+# bun
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz
+
+# pnpm / npm
+pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz
+pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz
 ```
+
+Do not use `github:upclose-studio/naive-ui` (git clone). The clone has no `es/` / `lib/` / `dist/` build output.
+
+`@juggle/resize-observer` is vendored from [`upclose-studio/resize-observer`](https://github.com/upclose-studio/resize-observer) (Nuxt-safe). Do not add a `github:` override for it — Bun cannot resolve that repo (default branch is `v3`, not `main`).
+
+## Nuxt 3/4 setup
+
+After adding the two tarball dependencies:
 
 ```ts
 // nuxt.config.ts

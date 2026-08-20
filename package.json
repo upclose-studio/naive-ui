@@ -1,6 +1,6 @@
 {
   "name": "naive-ui",
-  "version": "2.45.1",
+  "version": "1.0.2",
   "packageManager": "pnpm@11.10.0",
   "description": "Performance-focused fork of Naive UI for Nuxt 3/4 SSR and Nitro",
   "author": "07akioni",
@@ -33,7 +33,14 @@
     },
     "./es/*": "./es/*",
     "./lib/*": "./lib/*",
-    "./volar": "./volar.d.ts"
+    "./volar": "./volar.d.ts",
+    "./vendor/resize-observer": {
+      "types": "./vendor/resize-observer/lib/exports/resize-observer.d.ts",
+      "import": "./vendor/resize-observer/lib/exports/resize-observer.js",
+      "require": "./vendor/resize-observer/lib/exports/resize-observer.umd.js",
+      "default": "./vendor/resize-observer/lib/exports/resize-observer.js"
+    },
+    "./vendor/resize-observer/package.json": "./vendor/resize-observer/package.json"
   },
   "files": [
     "README.md",
@@ -41,6 +48,7 @@
     "es",
     "generic",
     "lib",
+    "vendor",
     "volar.d.ts",
     "web-types.json"
   ],
@@ -91,6 +99,7 @@
     "@css-render/plugin-bem": "^0.15.14",
     "@css-render/vue3-ssr": "^0.15.14",
     "@date-fns/tz": "^1.5.0",
+    "@juggle/resize-observer": "file:./vendor/resize-observer",
     "@types/lodash": "^4.17.20",
     "@types/lodash-es": "^4.17.12",
     "async-validator": "^4.2.5",
@@ -155,6 +164,7 @@
     "tsdown": "^0.22.2",
     "tsx": "^4.20.3",
     "typescript": "^6.0.3",
+    "unrun": "^0.3.1",
     "vfonts": "^0.0.3",
     "vite": "^8.0.10",
     "vitest": "^4.1.5",
@@ -166,15 +176,15 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --no-warn-ignored"
     ],
     "*.ts": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --no-warn-ignored"
     ],
     "*.tsx": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --no-warn-ignored"
     ],
     "*.vue": [
       "prettier --parser=vue --write",

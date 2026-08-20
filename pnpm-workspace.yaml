@@ -9,6 +9,7 @@ minimumReleaseAgeExclude:
 onlyBuiltDependencies:
   - esbuild
 overrides:
+  '@juggle/resize-observer': file:./vendor/resize-observer
   cssstyle: 5.2.1
   vite: ^8.0.10
 peerDependencyRules:

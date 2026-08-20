@@ -12,7 +12,8 @@ export default antfu(
       'test/unit/coverage',
       'src/_deprecated/icons',
       'dist',
-      'es'
+      'es',
+      'vendor'
     ]
   },
   {

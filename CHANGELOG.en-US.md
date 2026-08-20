@@ -1,10 +1,29 @@
 # CHANGELOG
 
-## 2.45.1
+## 1.0.2
 
 `2026-08-20`
 
-### Performance (this fork)
+### Fixes
+
+- Vendor `@juggle/resize-observer` from `upclose-studio/resize-observer` and drop `github:` / `overrides` specs so Bun can install (that repo’s default branch is `v3`, which Bun cannot resolve).
+
+## 1.0.1
+
+`2026-08-20`
+
+### Fixes
+
+- Ship `naive-ui-nuxt` Nitro `render:html` plugin as JavaScript so Nitro/Rollup no longer fails on TypeScript `as` assertions.
+- Resolve `@juggle/resize-observer` from `github:upclose-studio/resize-observer` (fixes the Nuxt SSR `process` identifier clash from vueuc).
+
+## 1.0.0
+
+`2026-08-20`
+
+First release of the upclose-studio Naive UI Nuxt SSR fork. Based on upstream Naive UI 2.45.1.
+
+### Features
 
 - Upgrade timezone formatting from `date-fns-tz` to `date-fns` v4 + `@date-fns/tz`.
 - Add an LRU css-render SSR style cache (max 500) keyed by theme, overrides, and component id.
