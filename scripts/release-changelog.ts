@@ -21,7 +21,7 @@ const { DISCORD_TOKEN } = env
 
 async function releaseChangelogToDingTalk(): Promise<void> {
   const allLog = fs
-    .readFileSync(path.resolve(__dirname, '../CHANGELOG.zh-CN.md'), 'utf-8')
+    .readFileSync(path.resolve(__dirname, '../CHANGELOG.en-US.md'), 'utf-8')
     .split(/^## /gm)[1]
 
   const changelog = allLog
@@ -33,7 +33,7 @@ async function releaseChangelogToDingTalk(): Promise<void> {
 
   const title = `变更日志 ${number.trim()}`
 
-  const text = `${changelog.trim()}\n\n完整信息见 https://github.com/tusen-ai/naive-ui/blob/main/CHANGELOG.zh-CN.md\n`
+  const text = `${changelog.trim()}\n\nSee https://github.com/upclose-studio/naive-ui/blob/main/CHANGELOG.en-US.md\n`
 
   await inquirer
     .prompt([

@@ -2,10 +2,10 @@ import type { CNode } from 'css-render'
 import type { ComputedRef, PropType, Ref } from 'vue'
 import type { ThemeCommonVars } from '../_styles/common'
 import type { GlobalTheme } from '../config-provider'
-import { useSsrAdapter } from '@css-render/vue3-ssr'
 import { merge } from 'lodash-es'
 import { computed, inject, onBeforeMount } from 'vue'
 import globalStyle from '../_styles/global/index.cssr'
+import { mountStyle as mountCachedStyle, useSsrAdapter } from '../_utils/cssr'
 import { configProviderInjectionKey } from '../config-provider/src/context'
 import { cssrAnchorMetaName } from './common'
 
@@ -84,23 +84,34 @@ function useTheme<T extends Theme<string, any, any>>(
   if (style) {
     const mountStyle = (): void => {
       const clsPrefix = clsPrefixRef?.value
-      style.mount({
-        id: clsPrefix === undefined ? mountId : clsPrefix + mountId,
+      const themeName
+        = props.theme?.name ?? NConfigProvider?.mergedThemeRef.value?.name
+      const themeOverrides
+        = props.themeOverrides ?? NConfigProvider?.mergedThemeOverridesRef.value
+      const id = clsPrefix === undefined ? mountId : clsPrefix + mountId
+      mountCachedStyle(style, {
+        id,
         head: true,
         props: {
           bPrefix: clsPrefix ? `.${clsPrefix}-` : undefined
         },
         anchorMetaName: cssrAnchorMetaName,
         ssr: ssrAdapter,
-        parent: NConfigProvider?.styleMountTarget
+        parent: NConfigProvider?.styleMountTarget,
+        themeName,
+        themeOverrides,
+        componentId: id
       })
       if (!NConfigProvider?.preflightStyleDisabled) {
-        globalStyle.mount({
+        mountCachedStyle(globalStyle, {
           id: 'n-global',
           head: true,
           anchorMetaName: cssrAnchorMetaName,
           ssr: ssrAdapter,
-          parent: NConfigProvider?.styleMountTarget
+          parent: NConfigProvider?.styleMountTarget,
+          themeName,
+          themeOverrides,
+          componentId: 'n-global'
         })
       }
     }

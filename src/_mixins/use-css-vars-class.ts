@@ -1,9 +1,12 @@
 import type { ComputedRef, Ref } from 'vue'
-import { useSsrAdapter } from '@css-render/vue3-ssr'
 import { hash } from 'css-render'
 import { inject, ref, watchEffect } from 'vue'
-import { throwError } from '../_utils'
-import { c } from '../_utils/cssr'
+import {
+  c,
+  mountStyle as mountCachedStyle,
+  useSsrAdapter
+} from '../_utils/cssr'
+import { throwError } from '../_utils/naive/warn'
 import { configProviderInjectionKey } from '../config-provider/src/context'
 
 export function useThemeClass(
@@ -52,10 +55,13 @@ export function useThemeClass(
       for (const key in cssVars) {
         style += `${key}: ${cssVars[key]};`
       }
-      c(`.${finalThemeHash}`, style).mount({
+      mountCachedStyle(c(`.${finalThemeHash}`, style), {
         id: finalThemeHash,
         ssr: ssrAdapter,
-        parent: styleMountTarget
+        parent: styleMountTarget,
+        themeName: mergedThemeHashRef?.value,
+        themeOverrides,
+        componentId: finalThemeHash
       })
       renderCallback = undefined
     }

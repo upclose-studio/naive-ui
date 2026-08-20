@@ -49,6 +49,22 @@ function createKey<P extends string, S extends string>(
           startChar.toUpperCase()))) as any
 }
 
+export { LruCache } from './lru-cache'
+export {
+  CSSR_ID_ATTR,
+  DATA_CSSR_ID_ATTR,
+  mountStyle,
+  queryExistingStyle
+} from './mount-style'
+export type { CachedMountOptions } from './mount-style'
+export { setup, ssrContextKey, useSsrAdapter } from './ssr-adapter'
+export type { CssrSsrContext } from './ssr-adapter'
+export {
+  createSsrStyleCacheKey,
+  SSR_STYLE_CACHE_MAX,
+  ssrStyleCache
+} from './ssr-style-cache'
+
 export {
   asModal,
   c,

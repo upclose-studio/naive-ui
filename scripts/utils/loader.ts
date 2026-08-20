@@ -168,7 +168,7 @@ const COMPONENT_ROOT = path.resolve(process.cwd(), 'src')
 export async function convertFilesByComponentName(
   componentName: string
 ): Promise<void> {
-  const folders = ['zhCN', 'enUS'].map(item =>
+  const folders = ['enUS'].map(item =>
     path.resolve(COMPONENT_ROOT, `${componentName}/demos/${item}`)
   )
   if (folders.length) {

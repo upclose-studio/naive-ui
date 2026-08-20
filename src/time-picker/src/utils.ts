@@ -1,6 +1,6 @@
-import type { MaybeArray } from '../../_utils'
+import type { MaybeArray } from '../../_utils/vue/call'
 import { getHours } from 'date-fns'
-import { throwError } from '../../_utils'
+import { throwError } from '../../_utils/naive/warn'
 
 export const time = {
   amHours: [

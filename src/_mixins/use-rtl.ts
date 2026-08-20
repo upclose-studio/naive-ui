@@ -3,9 +3,9 @@ import type {
   RtlEnabledState,
   RtlItem
 } from '../config-provider/src/internal-interface'
-import { useSsrAdapter } from '@css-render/vue3-ssr'
 import { exists } from 'css-render'
 import { computed, inject, onBeforeMount, watchEffect } from 'vue'
+import { mountStyle as mountCachedStyle, useSsrAdapter } from '../_utils/cssr'
 import { configProviderInjectionKey } from '../config-provider/src/context'
 import { cssrAnchorMetaName } from './common'
 
@@ -41,7 +41,7 @@ export function useRtl(
       const { value: componentRtlState } = componentRtlStateRef
       if (!componentRtlState)
         return
-      componentRtlState.style.mount({
+      mountCachedStyle(componentRtlState.style, {
         id,
         head: true,
         anchorMetaName: cssrAnchorMetaName,
@@ -49,7 +49,10 @@ export function useRtl(
           bPrefix: clsPrefix ? `.${clsPrefix}-` : undefined
         },
         ssr: ssrAdapter,
-        parent: NConfigProvider?.styleMountTarget
+        parent: NConfigProvider?.styleMountTarget,
+        themeName: NConfigProvider?.mergedThemeRef.value?.name,
+        themeOverrides: NConfigProvider?.mergedThemeOverridesRef.value,
+        componentId: id
       })
     })
   }
