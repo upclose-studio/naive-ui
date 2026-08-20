@@ -53,6 +53,20 @@ export default defineNuxtModule<NaiveUiNuxtOptions>({
       nuxt.options.alias['@juggle/resize-observer'] = resizeObserver
       nuxt.options.nitro.alias ??= {}
       nuxt.options.nitro.alias['@juggle/resize-observer'] = resizeObserver
+      nuxt.options.vite.resolve ??= {}
+      const viteAlias = nuxt.options.vite.resolve.alias
+      if (Array.isArray(viteAlias)) {
+        viteAlias.push({
+          find: '@juggle/resize-observer',
+          replacement: resizeObserver
+        })
+      }
+      else {
+        nuxt.options.vite.resolve.alias = {
+          ...viteAlias,
+          '@juggle/resize-observer': resizeObserver
+        }
+      }
     }
 
     nuxt.options.build.transpile.push(
