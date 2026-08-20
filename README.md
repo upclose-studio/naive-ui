@@ -22,20 +22,20 @@ This fork is published as GitHub Release tarballs, not on the npm registry. Poin
 ```json
 {
   "dependencies": {
-    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz",
-    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz"
+    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.1.0/naive-ui-1.1.0.tgz",
+    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.1.0/naive-ui-nuxt-1.1.0.tgz"
   }
 }
 ```
 
 ```bash
 # bun
-bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz
-bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.1.0/naive-ui-1.1.0.tgz
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.1.0/naive-ui-nuxt-1.1.0.tgz
 
 # pnpm / npm
-pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz
-pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz
+pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.1.0/naive-ui-1.1.0.tgz
+pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.1.0/naive-ui-nuxt-1.1.0.tgz
 ```
 
 Do not use `github:upclose-studio/naive-ui` (git clone). The clone has no `es/` / `lib/` / `dist/` build output.

@@ -1,6 +1,6 @@
 {
   "name": "naive-ui-nuxt",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "description": "Nuxt 3/4 module for the Naive UI performance fork — SSR style injection, hydration guards, and on-demand auto-imports.",
   "license": "MIT",
