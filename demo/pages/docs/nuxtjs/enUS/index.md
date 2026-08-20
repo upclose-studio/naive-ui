@@ -1,57 +1,31 @@
 # Nuxt.js
 
-## Caveat
+This fork ships `naive-ui-nuxt` for Nuxt 3/4. It injects css-render styles during Nitro `render:html` and skips client remount when `data-cssr-id` tags already exist.
 
-This document pertains to SSR (Server-Side Rendering). Please familiarize yourself with the [SSR Caveats](ssr#Caveat) before proceeding.
-
-## Nuxt.js Demo
-
-You can refer to [example](https://github.com/07akioni/naive-ui-nuxt-demo).
-
-## Using Nuxt Module
-
-This is the same approach which previous demo uses.
-
-Install the [module](https://github.com/07akioni/nuxtjs-naive-ui) to your Nuxt application with one command:
+## Setup
 
 ```bash
-# npm
-npx nuxi module add nuxtjs-naive-ui
-
-# pnpm
-pnpm dlx nuxi module add nuxtjs-naive-ui
+pnpm add naive-ui naive-ui-nuxt
 ```
-
-## Using Auto Import in Nuxt
-
-You can also use the `unplugin-auto-import` plugin to automatically import APIs and the `unplugin-vue-components` plugin to automatically import components on demand. In this case, the `nuxt.config.ts` file will have a few additional configuration lines compared to the example above.
 
 ```ts
-import AutoImport from 'unplugin-auto-import/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import Components from 'unplugin-vue-components/vite'
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['nuxtjs-naive-ui'],
-  vite: {
-    plugins: [
-      AutoImport({
-        imports: [
-          {
-            'naive-ui': [
-              'useDialog',
-              'useMessage',
-              'useNotification',
-              'useLoadingBar'
-            ]
-          }
-        ]
-      }),
-      Components({
-        resolvers: [NaiveUiResolver()]
-      })
-    ]
-  }
+  modules: ['naive-ui-nuxt']
 })
 ```
+
+Components are registered with `addComponent` so unused ones stay out of the client bundle.
+
+```vue
+<template>
+  <n-config-provider>
+    <n-button type="primary">
+      Hello
+    </n-button>
+    <n-date-picker />
+  </n-config-provider>
+</template>
+```
+
+See the [SSR caveats](ssr#Caveat) before deploying.
