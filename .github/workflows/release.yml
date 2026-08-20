@@ -38,7 +38,7 @@ jobs:
         with:
           files: |
             naive-ui-*.tgz
-            packages/nuxt/naive-ui-nuxt-*.tgz
+            naive-ui-nuxt-*.tgz
           generate_release_notes: true
           body: |
             First install path for apps that are not using this monorepo:
