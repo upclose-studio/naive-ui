@@ -8,6 +8,15 @@ Nuxt 3/4 module for this Naive UI performance fork.
 
 ## Setup
 
+```json
+{
+  "dependencies": {
+    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-1.0.0.tgz",
+    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-nuxt-1.0.0.tgz"
+  }
+}
+```
+
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({

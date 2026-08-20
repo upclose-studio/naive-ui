@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - run: corepack enable
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: package.json
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build:package:vapor
+
+      - name: Pack
+        run: |
+          pnpm pack
+          pnpm --filter naive-ui-nuxt pack
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            naive-ui-*.tgz
+            packages/nuxt/naive-ui-nuxt-*.tgz
+          generate_release_notes: true
+          body: |
+            First install path for apps that are not using this monorepo:
+
+            ```json
+            {
+              "dependencies": {
+                "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/${{ github.ref_name }}/naive-ui-1.0.0.tgz",
+                "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/${{ github.ref_name }}/naive-ui-nuxt-1.0.0.tgz"
+              }
+            }
+            ```
+
+            Replace the tarball filenames when the package version changes.

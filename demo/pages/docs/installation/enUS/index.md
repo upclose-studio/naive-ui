@@ -4,13 +4,24 @@
 
 > Please note that naive-ui only supports Vue3. If you are using Vue2, you may look at other libraries.
 
-## npm
+## GitHub Release
 
-Use npm to install.
+This fork is not published on npm. Install the v1.0.0 tarballs from [upclose-studio/naive-ui](https://github.com/upclose-studio/naive-ui/releases):
+
+```json
+{
+  "dependencies": {
+    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-1.0.0.tgz",
+    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-nuxt-1.0.0.tgz"
+  }
+}
+```
 
 ```bash
-npm i naive-ui
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.0/naive-ui-1.0.0.tgz
 ```
+
+A `github:upclose-studio/naive-ui` git dependency will not work — the repository does not contain the built `es/`, `lib/`, or `dist/` files.
 
 ## UMD
 

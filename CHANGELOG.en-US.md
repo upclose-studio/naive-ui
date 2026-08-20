@@ -1,10 +1,12 @@
 # CHANGELOG
 
-## 2.45.1
+## 1.0.0
 
 `2026-08-20`
 
-### Performance (this fork)
+First release of the upclose-studio Naive UI Nuxt SSR fork. Based on upstream Naive UI 2.45.1.
+
+### Features
 
 - Upgrade timezone formatting from `date-fns-tz` to `date-fns` v4 + `@date-fns/tz`.
 - Add an LRU css-render SSR style cache (max 500) keyed by theme, overrides, and component id.
