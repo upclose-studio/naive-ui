@@ -30,6 +30,7 @@ declare module 'vue' {
     NCountdown: (typeof import('naive-ui'))['NCountdown']
     NDataTable: (typeof import('naive-ui'))['NDataTable']
     NDatePicker: (typeof import('naive-ui'))['NDatePicker']
+    NDateRangePicker: (typeof import('naive-ui'))['NDateRangePicker']
     NDescriptions: (typeof import('naive-ui'))['NDescriptions']
     NDescriptionsItem: (typeof import('naive-ui'))['NDescriptionsItem']
     NDialog: (typeof import('naive-ui'))['NDialog']

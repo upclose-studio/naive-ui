@@ -42,6 +42,11 @@ export const naiveComponents: NaiveComponentEntry[] = [
   { name: 'NCountdown', export: 'NCountdown', dir: 'countdown' },
   { name: 'NDataTable', export: 'NDataTable', dir: 'data-table' },
   { name: 'NDatePicker', export: 'NDatePicker', dir: 'date-picker' },
+  {
+    name: 'NDateRangePicker',
+    export: 'NDateRangePicker',
+    dir: 'date-range-picker'
+  },
   { name: 'NDescriptions', export: 'NDescriptions', dir: 'descriptions' },
   {
     name: 'NDescriptionsItem',
