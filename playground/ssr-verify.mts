@@ -4,6 +4,8 @@
  */
 import process from 'node:process'
 import { renderToString } from '@vue/server-renderer'
+
+;(globalThis as { __DEV__?: boolean }).__DEV__ = false
 import { createSSRApp, defineComponent, h, ref } from 'vue'
 import { setup, ssrStyleCache } from '../src/_utils/cssr'
 import { NButton } from '../src/button'
