@@ -1,0 +1,17 @@
+{
+  "name": "Naive UI",
+  "install": "bash .cursor/install.sh",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "pnpm run dev",
+      "description": "Vite documentation site dev server (http://localhost:5173)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "dev-server",
+      "port": 5173
+    }
+  ]
+}
