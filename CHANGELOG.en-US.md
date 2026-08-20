@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.0.2
+
+`2026-08-20`
+
+### Fixes
+
+- Vendor `@juggle/resize-observer` from `upclose-studio/resize-observer` and drop `github:` / `overrides` specs so Bun can install (that repo’s default branch is `v3`, which Bun cannot resolve).
+
 ## 1.0.1
 
 `2026-08-20`

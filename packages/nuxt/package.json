@@ -1,6 +1,6 @@
 {
   "name": "naive-ui-nuxt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Nuxt 3/4 module for the Naive UI performance fork — SSR style injection, hydration guards, and on-demand auto-imports.",
   "license": "MIT",
@@ -20,7 +20,6 @@
     "vue": "^3.0.0"
   },
   "dependencies": {
-    "@juggle/resize-observer": "github:upclose-studio/resize-observer",
     "@nuxt/kit": "^3.16.0"
   },
   "devDependencies": {

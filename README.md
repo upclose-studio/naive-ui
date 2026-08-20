@@ -22,33 +22,25 @@ This fork is published as GitHub Release tarballs, not on the npm registry. Poin
 ```json
 {
   "dependencies": {
-    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-1.0.1.tgz",
-    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-nuxt-1.0.1.tgz"
+    "naive-ui": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz",
+    "naive-ui-nuxt": "https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz"
   }
 }
 ```
 
 ```bash
 # bun
-bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-1.0.1.tgz
-bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-nuxt-1.0.1.tgz
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz
+bun add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz
 
 # pnpm / npm
-pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-1.0.1.tgz
-pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.1/naive-ui-nuxt-1.0.1.tgz
+pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-1.0.2.tgz
+pnpm add https://github.com/upclose-studio/naive-ui/releases/download/v1.0.2/naive-ui-nuxt-1.0.2.tgz
 ```
 
 Do not use `github:upclose-studio/naive-ui` (git clone). The clone has no `es/` / `lib/` / `dist/` build output.
 
-`naive-ui-nuxt` aliases `@juggle/resize-observer` to [`github:upclose-studio/resize-observer`](https://github.com/upclose-studio/resize-observer). If you use `naive-ui` without the module, add the same override in your app:
-
-```json
-{
-  "overrides": {
-    "@juggle/resize-observer": "github:upclose-studio/resize-observer"
-  }
-}
-```
+`@juggle/resize-observer` is vendored from [`upclose-studio/resize-observer`](https://github.com/upclose-studio/resize-observer) (Nuxt-safe). Do not add a `github:` override for it — Bun cannot resolve that repo (default branch is `v3`, not `main`).
 
 ## Nuxt 3/4 setup
 

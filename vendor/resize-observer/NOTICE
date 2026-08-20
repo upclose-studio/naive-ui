@@ -1,0 +1,3 @@
+This directory vendors https://github.com/upclose-studio/resize-observer
+(Apache-2.0), a Nuxt-safe fork of @juggle/resize-observer 3.3.1.
+It is bundled so package managers do not have to resolve a github: specifier.

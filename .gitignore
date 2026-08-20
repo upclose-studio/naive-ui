@@ -19,8 +19,8 @@ coverage
 /fonts
 /site
 /package
-lib
-es
+/lib
+/es
 *.tsbuildinfo
 pnpm-lock.yaml
 web-types.json

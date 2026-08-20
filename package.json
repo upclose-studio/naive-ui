@@ -1,6 +1,6 @@
 {
   "name": "naive-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packageManager": "pnpm@11.10.0",
   "description": "Performance-focused fork of Naive UI for Nuxt 3/4 SSR and Nitro",
   "author": "07akioni",
@@ -33,7 +33,14 @@
     },
     "./es/*": "./es/*",
     "./lib/*": "./lib/*",
-    "./volar": "./volar.d.ts"
+    "./volar": "./volar.d.ts",
+    "./vendor/resize-observer": {
+      "types": "./vendor/resize-observer/lib/exports/resize-observer.d.ts",
+      "import": "./vendor/resize-observer/lib/exports/resize-observer.js",
+      "require": "./vendor/resize-observer/lib/exports/resize-observer.umd.js",
+      "default": "./vendor/resize-observer/lib/exports/resize-observer.js"
+    },
+    "./vendor/resize-observer/package.json": "./vendor/resize-observer/package.json"
   },
   "files": [
     "README.md",
@@ -41,6 +48,7 @@
     "es",
     "generic",
     "lib",
+    "vendor",
     "volar.d.ts",
     "web-types.json"
   ],
@@ -87,17 +95,11 @@
   "peerDependencies": {
     "vue": "^3.0.0"
   },
-  "overrides": {
-    "@juggle/resize-observer": "github:upclose-studio/resize-observer"
-  },
-  "resolutions": {
-    "@juggle/resize-observer": "github:upclose-studio/resize-observer"
-  },
   "dependencies": {
     "@css-render/plugin-bem": "^0.15.14",
     "@css-render/vue3-ssr": "^0.15.14",
     "@date-fns/tz": "^1.5.0",
-    "@juggle/resize-observer": "github:upclose-studio/resize-observer",
+    "@juggle/resize-observer": "file:./vendor/resize-observer",
     "@types/lodash": "^4.17.20",
     "@types/lodash-es": "^4.17.12",
     "async-validator": "^4.2.5",
@@ -174,15 +176,15 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --no-warn-ignored"
     ],
     "*.ts": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --no-warn-ignored"
     ],
     "*.tsx": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --no-warn-ignored"
     ],
     "*.vue": [
       "prettier --parser=vue --write",

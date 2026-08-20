@@ -1,4 +1,5 @@
 import { createRequire } from 'node:module'
+import { dirname } from 'node:path'
 import {
   addComponent,
   addPlugin,
@@ -11,12 +12,20 @@ import { naiveComponents } from './components'
 const require = createRequire(import.meta.url)
 
 function resolveJuggleResizeObserver(): string | undefined {
-  try {
-    return require.resolve('@juggle/resize-observer')
+  const specifiers = [
+    'naive-ui/vendor/resize-observer/package.json',
+    '@juggle/resize-observer/package.json',
+    '../../../vendor/resize-observer/package.json'
+  ]
+  for (const specifier of specifiers) {
+    try {
+      return dirname(require.resolve(specifier))
+    }
+    catch {
+      // try the next specifier
+    }
   }
-  catch {
-    return undefined
-  }
+  return undefined
 }
 
 export interface NaiveUiNuxtOptions {

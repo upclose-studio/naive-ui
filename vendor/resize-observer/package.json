@@ -1,0 +1,18 @@
+{
+  "name": "@juggle/resize-observer",
+  "version": "3.3.1",
+  "description": "Vendored upclose-studio/resize-observer fork (Nuxt-safe process() rename). Apache-2.0.",
+  "license": "Apache-2.0",
+  "main": "lib/exports/resize-observer.umd.js",
+  "module": "lib/exports/resize-observer.js",
+  "types": "lib/exports/resize-observer.d.ts",
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/upclose-studio/resize-observer"
+  }
+}
