@@ -1,6 +1,6 @@
 {
   "name": "naive-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "packageManager": "pnpm@11.10.0",
   "description": "Performance-focused fork of Naive UI for Nuxt 3/4 SSR and Nitro",
   "author": "07akioni",
@@ -99,7 +99,6 @@
     "@css-render/plugin-bem": "^0.15.14",
     "@css-render/vue3-ssr": "^0.15.14",
     "@date-fns/tz": "^1.5.0",
-    "@juggle/resize-observer": "file:./vendor/resize-observer",
     "@types/lodash": "^4.17.20",
     "@types/lodash-es": "^4.17.12",
     "async-validator": "^4.2.5",

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.1.1
+
+`2026-08-20`
+
+### Fixes
+
+- Stop depending on `@juggle/resize-observer` via `file:./vendor/resize-observer`. Bun 1.4 cannot resolve that path from a packed tarball (`file:../../root/.bun/install/cache/.../vendor/resize-observer`). The Nuxt-safe fork stays vendored; `naive-ui-nuxt` aliases `@juggle/resize-observer` to it.
+
 ## 1.1.0
 
 `2026-08-20`
