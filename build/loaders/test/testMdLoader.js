@@ -4,7 +4,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const content = fs
-  .readFileSync(path.resolve(__dirname, '../../../CHANGELOG.zh-CN.md'))
+  .readFileSync(path.resolve(__dirname, '../../../CHANGELOG.en-US.md'))
   .toString()
 // console.log('rendered', mdLoader(content))
 

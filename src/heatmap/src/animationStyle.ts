@@ -1,10 +1,13 @@
 import type { ComputedRef, Ref } from 'vue'
 import type { MergedTheme, Theme } from '../../_mixins'
 import type { HeatmapThemeVars } from '../styles'
-import { useSsrAdapter } from '@css-render/vue3-ssr'
 import { hash } from 'css-render'
 import { inject, onMounted, ref, watchEffect } from 'vue'
-import { c } from '../../_utils/cssr'
+import {
+  c,
+  mountStyle as mountCachedStyle,
+  useSsrAdapter
+} from '../../_utils/cssr'
 import { configProviderInjectionKey } from '../../config-provider/src/context'
 
 export function useLoadingStyleClass(
@@ -53,10 +56,11 @@ export function useLoadingStyleClass(
         )
       ])
       // We don't unmount it since we didn't know its mount count
-      cnode.mount({
+      mountCachedStyle(cnode, {
         id: loadingColorHash,
         ssr: adapter,
-        parent: styleMountTarget
+        parent: styleMountTarget,
+        componentId: loadingColorHash
       })
     })
   })

@@ -1,5 +1,7 @@
 packages:
   - '.'
+  - 'packages/*'
+  - 'playground/nuxt'
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:

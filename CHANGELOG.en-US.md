@@ -4,6 +4,14 @@
 
 `2026-08-20`
 
+### Performance (this fork)
+
+- Upgrade timezone formatting from `date-fns-tz` to `date-fns` v4 + `@date-fns/tz`.
+- Add an LRU css-render SSR style cache (max 500) keyed by theme, overrides, and component id.
+- Emit `data-cssr-id` on SSR style tags and skip client remount when the tag already exists.
+- Add strict ESM `exports` (`naive-ui/es/*`) and a `naive-ui-nuxt` module for Nitro style injection and on-demand auto-imports.
+- Remove Chinese documentation and demo markdown. Runtime locales are unchanged.
+
 ### i18n
 
 - Add afZA, amET, beBY, bgBG, bnBD, caES, elGR, esES, euES, fiFI, filPH, glES, guIN, heIL, hiIN, hrHR, huHU, hyAM, isIS, kaGE, kkKZ, knIN, kyKG, loLA, ltLT, lvLV, mkMK, mlIN, mnMN, mrIN, msMY, myMM, neNP, paIN, ptPT, rmCH, roRO, siLK, slSI, sqAL, srRS, swKE, taIN, teIN, urPK and zuZA locales.

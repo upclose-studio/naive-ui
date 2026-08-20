@@ -9,7 +9,6 @@ import {
   useDisplayMode,
   useDocOptions,
   useFlattenedDocOptions,
-  useLocaleName,
   useThemeName
 } from './store'
 import { renderMenuLabel } from './store/menu-options'
@@ -80,9 +79,6 @@ export default defineComponent({
       light: t('dark')
     }))
 
-    // locale
-    const localeNameRef = useLocaleName()
-
     // menu
     const menuOptionsRef = computed(() => {
       return [
@@ -123,10 +119,6 @@ export default defineComponent({
           label: themeLabelMapRef.value[themeNameRef.value]
         },
         {
-          key: 'locale',
-          label: localeNameRef.value === 'zh-CN' ? 'English' : '中文'
-        },
-        {
           key: 'home',
           label: t('home'),
           path: themeAndLocaleReg.exec(route.path)[0]
@@ -158,14 +150,6 @@ export default defineComponent({
       if (value === 'theme') {
         handleThemeUpdate()
       }
-      else if (value === 'locale') {
-        if (localeNameRef.value === 'zh-CN') {
-          localeNameRef.value = 'en-US'
-        }
-        else {
-          localeNameRef.value = 'zh-CN'
-        }
-      }
       else if (path) {
         router.push(path)
       }
@@ -181,19 +165,6 @@ export default defineComponent({
       }
       else {
         themeNameRef.value = 'dark'
-      }
-    }
-
-    const localeLabelMap = {
-      'zh-CN': 'English',
-      'en-US': '中文'
-    }
-    function handleLocaleUpdate() {
-      if (localeNameRef.value === 'zh-CN') {
-        localeNameRef.value = 'en-US'
-      }
-      else {
-        localeNameRef.value = 'zh-CN'
       }
     }
 
@@ -309,10 +280,6 @@ export default defineComponent({
       displayMode: displayModeRef,
       displayModeLabelMap,
       handleDisplayModeUpdate,
-      // locale
-      locale: localeNameRef,
-      localeLabelMap,
-      handleLocaleUpdate,
       // configProvider
       configProviderName: configProviderNameRef,
       cfgProviderLabelMap: cfgProviderLabelMapRef,
@@ -410,14 +377,6 @@ export default defineComponent({
       </div>
     </n-popover>
     <div v-else class="nav-end">
-      <n-button
-        size="small"
-        quaternary
-        class="nav-picker"
-        @click="handleLocaleUpdate"
-      >
-        {{ localeLabelMap[locale] }}
-      </n-button>
       <n-button
         size="small"
         quaternary

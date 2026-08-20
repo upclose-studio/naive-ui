@@ -2,7 +2,8 @@ import type { Locale } from 'date-fns'
 import type { CSSProperties, PropType, Ref, VNode } from 'vue'
 import type { FollowerPlacement } from 'vueuc'
 import type { ThemeProps } from '../../_mixins'
-import type { ExtractPublicPropTypes, MaybeArray } from '../../_utils'
+import type { ExtractPublicPropTypes } from '../../_utils/naive/extract-public-props'
+import type { MaybeArray } from '../../_utils/vue/call'
 import type { FormValidationStatus } from '../../form/src/public-types'
 import type { InputInst } from '../../input'
 import type { TimePickerTheme, TimePickerThemeOverrides } from '../styles'
@@ -35,7 +36,6 @@ import {
   startOfMinute,
   startOfSecond
 } from 'date-fns'
-import { formatInTimeZone } from 'date-fns-tz'
 import { getPreciseEventTarget, happensIn } from 'seemly'
 import { clickoutside } from 'vdirs'
 import { useIsMounted, useKeyboard, useMergedState } from 'vooks'
@@ -68,6 +68,7 @@ import {
   useAdjustedTo,
   warnOnce
 } from '../../_utils'
+import { formatInTimeZone } from '../../_utils/date'
 import { strictParse } from '../../date-picker/src/utils'
 import { NInput } from '../../input'
 import { timePickerLight } from '../styles'

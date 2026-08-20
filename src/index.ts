@@ -1,4 +1,14 @@
-export { c, cB, cE, cM, cNotM } from './_utils/cssr'
+export {
+  c,
+  cB,
+  cE,
+  cM,
+  cNotM,
+  DATA_CSSR_ID_ATTR,
+  setup,
+  ssrStyleCache,
+  useSsrAdapter
+} from './_utils/cssr'
 
 export * from './components'
 
