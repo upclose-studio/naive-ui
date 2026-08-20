@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.1.0
+
+`2026-08-20`
+
+### Features
+
+- Add `NDateRangePicker` (`naive-ui/es/date-range-picker`) for `date` / `daterange` without datetime panels or `NTimePicker`.
+
+### Fixes
+
+- Handle missing range panels in the date-picker factory render.
+
 ## 1.0.2
 
 `2026-08-20`
@@ -29,7 +41,6 @@ First release of the upclose-studio Naive UI Nuxt SSR fork. Based on upstream Na
 - Add an LRU css-render SSR style cache (max 500) keyed by theme, overrides, and component id.
 - Emit `data-cssr-id` on SSR style tags and skip client remount when the tag already exists.
 - Add strict ESM `exports` (`naive-ui/es/*`) and a `naive-ui-nuxt` module for Nitro style injection and on-demand auto-imports.
-- Add `NDateRangePicker` (`naive-ui/es/date-range-picker`) for `date` / `daterange` without datetime panels or `NTimePicker`.
 - Remove Chinese documentation and demo markdown. Runtime locales are unchanged.
 
 ### i18n
