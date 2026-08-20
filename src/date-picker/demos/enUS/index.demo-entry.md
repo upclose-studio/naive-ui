@@ -2,6 +2,8 @@
 
 People have too many ideas on how to set the time.
 
+Pages that only need `date` / `daterange` (no time UI) should import `NDateRangePicker` from `naive-ui/es/date-range-picker`. That entry omits datetime panels and `NTimePicker`. `NDatePicker` is unchanged.
+
 ## Demos
 
 ```demo

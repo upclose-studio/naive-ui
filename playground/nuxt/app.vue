@@ -22,6 +22,7 @@ const data = [
         {{ isDark ? 'Dark' : 'Light' }}
       </n-button>
       <n-date-picker />
+      <n-date-range-picker />
       <n-data-table :columns="columns" :data="data" />
     </n-space>
   </n-config-provider>
