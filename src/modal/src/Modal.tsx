@@ -25,7 +25,6 @@ import {
   call,
   eventEffectNotPerformed,
   keep,
-  omit,
   useIsComposing,
   warnOnce
 } from '../../_utils'
@@ -33,7 +32,7 @@ import { dialogProviderInjectionKey } from '../../dialog/src/context'
 import { modalLight } from '../styles'
 import NModalBodyWrapper from './BodyWrapper'
 import { modalInjectionKey, modalProviderInjectionKey } from './interface'
-import { presetProps, presetPropsKeys } from './presetProps'
+import { forwardedPresetPropsKeys, presetProps } from './presetProps'
 import style from './styles/index.cssr'
 
 export const modalProps = {
@@ -296,13 +295,8 @@ export default defineComponent({
       isMounted: isMountedRef,
       containerRef,
       presetProps: computed(() => {
-        const pickedProps = keep(props, presetPropsKeys)
         // TODO: remove as any after vue fix the issue introduced in 3.2.27
-        return omit(pickedProps, [
-          'onClose',
-          'onNegativeClick',
-          'onPositiveClick'
-        ]) as any
+        return keep(props, forwardedPresetPropsKeys) as any
       }),
       handleEsc,
       handleAfterLeave,
@@ -350,7 +344,6 @@ export default defineComponent({
                           <div
                             aria-hidden
                             class={`${mergedClsPrefix}-modal-mask`}
-                            onClick={this.handleClickoutside}
                           />
                         ) : null
                       }
@@ -377,9 +370,7 @@ export default defineComponent({
                   onBeforeLeave={this.handleBeforeLeave}
                   onAfterEnter={this.onAfterEnter}
                   onAfterLeave={this.handleAfterLeave}
-                  onClickoutside={
-                    showMask ? undefined : this.handleClickoutside
-                  }
+                  onClickoutside={this.handleClickoutside}
                 >
                   {this.$slots}
                 </NModalBodyWrapper>
